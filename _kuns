@@ -1,7 +1,7 @@
 #compdef kuns
 
 function _kuns() {
-    [ "${words[2]}" != "" ] && return
+    [ $CURRENT -gt 2 ] && return
 
     local namespaces
     namespaces=($(
