@@ -1,0 +1,11 @@
+#compdef kuns
+
+function _kuns() {
+    local contexts
+    contexts=($(
+        kubectl get namespaces -o=custom-columns=NAME:.metadata.name --no-headers
+    ))
+    _values "Switch to namespace" ${contexts[*]}
+}
+
+_kuns "${@}"

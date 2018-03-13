@@ -1,0 +1,11 @@
+#compdef kuctx
+
+function _kuctx() {
+    local contexts
+    contexts=($(
+        kubectl config get-contexts -o=name
+    ))
+    _values "Switch to context" ${contexts[*]}
+}
+
+_kuctx "${@}"
